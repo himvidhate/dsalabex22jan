@@ -1,0 +1,71 @@
+/////////////
+package leQ2;
+
+public class LexQ2 {
+	
+	static  Node root;
+	   
+	class Node {
+	    int value;
+	    Node left;
+	    Node right;
+
+	    Node(int value) {
+	        this.value = value;
+	        right= null;
+	        left= null;
+	    }
+	}
+	
+	public void create() {
+		Node n1 =new Node(12);
+		Node n2 =new Node(8);
+		Node n3 =new Node(16);
+		Node n4 =new Node(6);
+		Node n5 =new Node(10);
+		
+		
+		
+		root = n1;
+		root.left = n2;
+		root.right = n3;
+		n2.left = n4;
+		n2.right = n5;
+		
+	}
+	
+	public void postOrder(Node node)
+	{
+	if(node != null)
+	{
+	
+	postOrder(node.left);
+	
+	postOrder(node.right);
+	System.out.print(node.value +" ");
+	}
+	}
+	
+	
+}
+
+
+
+/////////////
+
+package leQ2;
+
+public class LexQ2main {
+
+	public static void main(String[] args) {
+		LexQ2 q2=new LexQ2();
+		q2.create();
+		System.out.println("postorder ");
+		q2.postOrder(LexQ2.root);
+
+	}
+
+}
+
+
+
